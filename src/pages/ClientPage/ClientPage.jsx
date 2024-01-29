@@ -1,6 +1,7 @@
 import './ClientPage.scss';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import SideNav from '../../components/SideNav/SideNav';
 
 export default function ClientPage(){
     const [clientList, setCLientList ] = useState([]);
@@ -19,7 +20,11 @@ export default function ClientPage(){
     console.log(clientList)
 
     return(
-        <>
-        </>
+        <main className='main'>
+            <SideNav />
+            <section className='page'>
+
+            </section>
+        </main>
     )
 }

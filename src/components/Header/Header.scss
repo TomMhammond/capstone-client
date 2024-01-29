@@ -11,6 +11,10 @@
     font-family: 'Roboto';
     padding: 0 2rem;
 
+    &__title {
+        font-weight: 700;
+    }
+
     &__list {
         list-style-type: none;
     }
