@@ -4,6 +4,20 @@
 
 .page {
     background-color: #f5f5f5;
-    height: 80vh;
+    height: 100%;
     width: 100vw;
+    
+}
+
+.client-card {
+    margin: 5rem;
+    border: 1px black solid;
+    height: auto;
+    background-color: #fff;
+    border-radius: 20px;
+
+    &__title {
+        padding: 1rem;
+        padding-left: 2rem;
+    }
 }

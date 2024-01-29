@@ -2,6 +2,7 @@ import './ClientPage.scss';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import SideNav from '../../components/SideNav/SideNav';
+import Client from '../../components/Client/Client';
 
 export default function ClientPage(){
     const [clientList, setCLientList ] = useState([]);
@@ -23,7 +24,12 @@ export default function ClientPage(){
         <main className='main'>
             <SideNav />
             <section className='page'>
-
+                <div className='client-card'>
+                    <h2 className='client-card__title'>Clients</h2>
+                    {clientList.map((client) => (
+                        <Client client={client} key={client.id}/>
+                    ))}
+                </div>
             </section>
         </main>
     )
