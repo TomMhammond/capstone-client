@@ -19,6 +19,7 @@ export default function ClientPage(){
     console.log(clientList)
 
     return(
-        <></>
+        <>
+        </>
     )
 }

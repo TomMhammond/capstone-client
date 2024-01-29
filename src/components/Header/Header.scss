@@ -1,0 +1,17 @@
+@use '../../styles/fonts' as *;
+
+.header {
+    background-color: #2196F3;
+    color: #fff;
+    width: 100vw;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Roboto';
+    padding: 0 2rem;
+
+    &__list {
+        list-style-type: none;
+    }
+}
