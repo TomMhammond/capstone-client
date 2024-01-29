@@ -1,0 +1,15 @@
+@use '../../styles/mixins' as *;
+
+.main {
+    display: flex;
+}
+
+.page {
+    @include pageLayout;    
+}
+
+.client-card {
+    &__subcontainer {
+        display: flex;
+    }
+}
