@@ -1,7 +1,9 @@
+import { useNavigate } from 'react-router-dom';
 import './PetListItem.scss';
 
 export default function PetListItem( {petData} ) {
-    const { name, species, breed } = petData;
+    const { name, species, breed, id } = petData;
+    const navigate = useNavigate();
 
     let aggression;
     let status;
@@ -18,8 +20,12 @@ export default function PetListItem( {petData} ) {
         status = 'pet-list--deceased'
     }
 
+    const clickHandler = () => {
+        navigate(`/pets/${id}`)
+    }
+
     return (
-        <section className={`pet-list ${aggression} ${status}`}>
+        <section className={`pet-list ${aggression} ${status}`} onClick={clickHandler}>
             <p className='pet-list__item pet-list__name'>{name}</p>
             <p className='pet-list__item pet-list__species'>{species}</p>
             <p className='pet-list__item pet-list__breed'>{breed}</p>
