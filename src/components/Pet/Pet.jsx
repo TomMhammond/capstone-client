@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import './Pet.scss';
 
 export default function Pet({ pet }){
@@ -21,9 +22,14 @@ export default function Pet({ pet }){
         status = 'Deceased';
         statusClass = 'pet--deceased';
     }
+
+    const navigate = useNavigate();
+    const clickHandler = () => {
+        navigate(`/pets/${pet.id}`)
+    }
     
     return(
-        <div className='pet'>
+        <div className='pet' onClick={clickHandler}>
             <p className='pet__name'>{pet.name}</p>
             <p className='pet__species'>{pet.species}</p>
             <p className='pet__breed'>{pet.breed}</p>

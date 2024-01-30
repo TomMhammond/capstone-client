@@ -1,0 +1,56 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+
+.main {
+    display: flex;
+}
+
+.page {
+    @include pageLayout;
+}
+
+.pet-card {
+    &__head{
+        display: flex;
+    }
+
+    &--docile{
+        margin-top: .8rem;
+        margin-bottom: .5rem;
+        padding: .5rem .5rem .25rem .5rem;
+        width: 6rem;
+        background-color: $docile-colour;
+        border: 1px solid $docile-colour;
+        border-radius: 20px;
+        text-align: center;
+    }
+
+    &--aggressive {
+        margin-top: .8rem;
+        margin-bottom: .5rem;
+        padding: .5rem .5rem .25rem .5rem;
+        width: 6rem;
+        background-color: $aggressive-colour;
+        border: 1px solid $aggressive-colour;
+        border-radius: 20px;
+        text-align: center;
+    }
+    &__subcontainer {
+        display: flex;
+        width: 25rem;
+        padding-bottom: .5rem;
+    }
+
+    &__container {
+        display: flex;
+        padding-left: 2rem;
+    }
+
+    &__label {
+        padding-right: .25rem;
+    }
+
+    &--deceased {
+        background-color: $deceased-colour;
+    }
+}
