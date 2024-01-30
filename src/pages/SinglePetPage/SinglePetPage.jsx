@@ -3,6 +3,7 @@ import SideNav from '../../components/SideNav/SideNav';
 import './SinglePetPage.scss';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Medical from '../../components/Medical/Medical';
 
 export default function SinglePetPage(){
    const [ pet, setPet ] = useState(null);
@@ -74,6 +75,7 @@ export default function SinglePetPage(){
                             </div>
                         </div>
                     </div>
+                    <Medical id={id}/>
                 </div>
             </section>
         </main>

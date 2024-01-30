@@ -29,7 +29,7 @@ export default function PetListItem( {petData} ) {
             <p className='pet-list__item pet-list__name'>{name}</p>
             <p className='pet-list__item pet-list__species'>{species}</p>
             <p className='pet-list__item pet-list__breed'>{breed}</p>
-            <p className='pet-list__item pet-list__chart'>Will be link to chart</p>
+            <p className='pet-list__item pet-list__dob'>9999/99/99</p>
         </section>
     )
 }
