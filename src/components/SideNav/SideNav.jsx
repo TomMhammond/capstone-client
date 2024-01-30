@@ -7,12 +7,16 @@ export default function SideNav(){
         navigate('/clients');
     }
 
+    const clickPets = () => {
+        navigate('/pets');
+    }
+
     return(
         <aside className='nav'>
             <ul className='nav__list'>
                 <li className='nav__list-item'>Register</li>
                 <li className='nav__list-item' onClick={clickClients}>Clients</li>
-                <li className='nav__list-item'>Pets</li>
+                <li className='nav__list-item' onClick={clickPets}>Pets</li>
                 <li className='nav__list-item'>Staff</li>
             </ul>
         </aside>
