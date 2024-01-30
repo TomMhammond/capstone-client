@@ -3,6 +3,7 @@ import './SingleClientPage.scss';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import PetList from '../../components/PetListItem/PetListItem';
 
 export default function SingleClientPage(){
     const params = useParams();
@@ -26,7 +27,6 @@ export default function SingleClientPage(){
         }
         fetchClientPets();
     }, [])
-    console.log(pets)
 
     if(!client || !pets) {
         return <></>
@@ -42,7 +42,7 @@ export default function SingleClientPage(){
                         <div className='client-card__wrapper'>
                             <div className='client-card__subcontainer'>
                                 <p className='client-card__label'>Email:</p>
-                                <p className='client-card__email'>{client.email}</p>
+                                <p className='client-card__email'><a href={`mailto:${client.email}`}>{client.email}</a></p>
                             </div>
                             <div className='client-card__subcontainer'>
                                 <p className='client-card__label'>Phone: </p>
@@ -69,6 +69,11 @@ export default function SingleClientPage(){
                         </div>
                     </div>
                     <h2 className='client-card__title'>Pet(s)</h2>
+                    <div className='client-card__pet-container'>
+                        {pets.map((pet) => (
+                            <PetList key={pet.id} petData={pet}/>
+                        ))}
+                    </div>
                 </div>
             </section>
         </main>

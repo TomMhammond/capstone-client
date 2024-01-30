@@ -1,0 +1,16 @@
+.pet-list {
+    display: flex;
+    // height: 3rem;
+    padding: 1.5rem 1rem;
+    border: 1px solid black;
+    margin-top: .5rem;
+    border-radius: 20px;
+
+    &__item {
+        padding-left: 3.5rem;
+    }
+
+    &__name {
+        padding-left: 2rem;
+    }
+}
