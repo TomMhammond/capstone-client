@@ -18,8 +18,6 @@ export default function ClientPage(){
         return <></>
     };
 
-    console.log(clientList)
-
     return(
         <main className='main'>
             <SideNav />

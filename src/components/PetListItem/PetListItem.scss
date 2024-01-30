@@ -7,10 +7,23 @@
     border-radius: 20px;
 
     &__item {
-        padding-left: 3.5rem;
+        // padding-left: 3.5rem;
+        width: 12rem;
     }
 
     &__name {
         padding-left: 2rem;
+    }
+
+    &--aggressive {
+        background-color: #f10c10;
+    }
+
+    &--not-aggressive {
+        background-color: #D8DBF1;
+    }
+
+    &--deceased {
+        background-color: #d3d3d3;
     }
 }
