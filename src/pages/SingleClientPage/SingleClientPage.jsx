@@ -9,6 +9,7 @@ export default function SingleClientPage(){
     const id = params.id;
    
     const [client, setClient ] = useState(null);
+    const [pets, setPets ] = useState([]);
 
     useEffect(() => {
         const fetchSingleClient = async () => {
@@ -18,7 +19,16 @@ export default function SingleClientPage(){
         fetchSingleClient();
     }, [])
 
-    if(!client) {
+    useEffect(() => {
+        const fetchClientPets = async () => {
+            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/pets/client/${id}`);
+            setPets(response.data);
+        }
+        fetchClientPets();
+    }, [])
+    console.log(pets)
+
+    if(!client || !pets) {
         return <></>
     }
 
@@ -29,11 +39,36 @@ export default function SingleClientPage(){
                 <div className='client-card'>
                     <h2 className='client-card__title'>{`${client.first_name} ${client.last_name}`}</h2>
                     <div className='client-card__container'>
-                        <div className='client-card__subcontainer'>
-                            <p className='client-card__email-label'>Email:</p>
-                            <p className='client-card__email-info'>{client.email}</p>
+                        <div className='client-card__wrapper'>
+                            <div className='client-card__subcontainer'>
+                                <p className='client-card__label'>Email:</p>
+                                <p className='client-card__email'>{client.email}</p>
+                            </div>
+                            <div className='client-card__subcontainer'>
+                                <p className='client-card__label'>Phone: </p>
+                                <p className='client-card__phone'>{client.phone}</p>
+                            </div>
+                        </div>
+                        <div className='client-card__wrapper'>
+                            <div className='client-card__subcontainer'>
+                                <p className='client-card__label'>Address:</p>
+                                <p className='client-card__address'>{client.address}</p>
+                            </div>
+                            <div className='client-card__subcontainer'>
+                                <p className='client-card__label'>City:</p>
+                                <p className='client-card__city'>{client.city}</p>
+                            </div>
+                            <div className='client-card__subcontainer'>
+                                <p className='client-card__label'>Country:</p>
+                                <p className='client-card__country'>{client.country}</p>
+                            </div>
+                            <div className='client-card__subcontainer'>
+                                <p className='client-card__label'>Postal Code:</p>
+                                <p className='client-card__postal'>{client.postal_code}</p>
+                            </div>
                         </div>
                     </div>
+                    <h2 className='client-card__title'>Pet(s)</h2>
                 </div>
             </section>
         </main>
