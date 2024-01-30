@@ -1,3 +1,5 @@
+@use '../../styles/variables' as *;
+
 .pet-list {
     display: flex;
     // height: 3rem;
@@ -16,14 +18,14 @@
     }
 
     &--aggressive {
-        background-color: #f10c10;
+        background-color: $aggressive-colour;
     }
 
     &--not-aggressive {
-        background-color: #D8DBF1;
+        background-color: $docile-colour;
     }
 
     &--deceased {
-        background-color: #d3d3d3;
+        background-color: $deceased-colour;
     }
 }
