@@ -43,6 +43,10 @@ export default function ClientForm(){
                     <input className='client-form__input' type='text' name='postalCode' id='postalCode' placeholder='A1A 1A1'></input>
                 </div>
             </div>
+            <div className='client-form__container client-form__button-container'>
+                <button>Register</button>
+                <button>Cancel</button>
+            </div>
         </form>
     )
 }
