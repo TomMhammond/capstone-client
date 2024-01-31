@@ -1,0 +1,30 @@
+.medical {
+    padding-left: 2rem;
+
+    &__status-container{
+        display: flex;
+    }
+
+    &__wrapper{
+        display: flex;
+    }
+
+    &__status{
+        width: 25rem;
+        padding-bottom: 1rem;
+    }
+
+    &__allergy-container {
+        width: 25rem;
+    }
+
+    &__subtitle {
+        font-weight: 400;
+    }
+
+    &__list {
+        list-style-type: none;
+        padding: 0.25rem 1.5rem;
+        margin: 0;
+    }
+}

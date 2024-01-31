@@ -17,6 +17,7 @@ export default function SinglePetPage(){
     }
     fetchPetData();
    },[])
+
    
    if(!pet){
     return <></>
@@ -75,6 +76,7 @@ export default function SinglePetPage(){
                             </div>
                         </div>
                     </div>
+                    <h2 className='pet-card__title'>Medical Chart</h2>
                     <Medical id={id}/>
                 </div>
             </section>
