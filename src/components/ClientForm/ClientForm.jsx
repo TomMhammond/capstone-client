@@ -5,7 +5,7 @@ import axios from 'axios';
 export default function ClientForm(){
     const navigate = useNavigate();
 
-    const registerSubmitHandler = (e) => {
+    const registerSubmitHandler = async (e) => {
         e.preventDefault();
         const formEl = e.target;
         const firstName = formEl.firstName.value;
@@ -31,7 +31,7 @@ export default function ClientForm(){
                 postal_code: postalCode
             }
 
-        console.log(body)
+        await axios.post(`${process.env.REACT_APP_BASE_URL}/clients`, body);
     }
 
     const cancelClickHandler = (e) =>{
