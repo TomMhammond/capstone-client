@@ -5,6 +5,7 @@ import SingleClientPage from "./pages/SingleClientPage/SingleClientPage";
 import PetsPage from "./pages/PetsPage/PetsPage";
 import SinglePetPage from "./pages/SinglePetPage/SinglePetPage";
 import CreateClientPage from "./pages/CreateClientPage/CreateClientPage";
+import CreatePetPage from "./pages/CreatePetPage/CreatePetPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/pets" element={<PetsPage />} />
         <Route path="/pets/:id" element={<SinglePetPage />} />
         <Route path="/register/client" element={<CreateClientPage />} />
+        <Route path="/register/pet" element={<CreatePetPage />} />
       </Routes>
     </BrowserRouter>
   );

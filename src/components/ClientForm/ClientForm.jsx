@@ -32,6 +32,8 @@ export default function ClientForm(){
             }
 
         await axios.post(`${process.env.REACT_APP_BASE_URL}/clients`, body);
+        navigate('/register/pet')
+
     }
 
     const cancelClickHandler = (e) =>{
