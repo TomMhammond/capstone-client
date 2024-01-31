@@ -44,8 +44,8 @@ export default function ClientForm(){
                 </div>
             </div>
             <div className='client-form__container client-form__button-container'>
-                <button>Register</button>
-                <button>Cancel</button>
+                <button className='client-form__button client-form__button--register'>Register</button>
+                <button className='client-form__button client-form__button--cancel'>Cancel</button>
             </div>
         </form>
     )
