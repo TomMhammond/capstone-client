@@ -3,6 +3,11 @@ import { useNavigate } from 'react-router-dom';
 
 export default function SideNav(){
     const navigate = useNavigate();
+    
+    const clickRegister = () => {
+        navigate('/register/client')
+    }
+    
     const clickClients = () => {
         navigate('/clients');
     }
@@ -14,7 +19,7 @@ export default function SideNav(){
     return(
         <aside className='nav'>
             <ul className='nav__list'>
-                <li className='nav__list-item'>Register</li>
+                <li className='nav__list-item' onClick={clickRegister}>Register</li>
                 <li className='nav__list-item' onClick={clickClients}>Clients</li>
                 <li className='nav__list-item' onClick={clickPets}>Pets</li>
                 <li className='nav__list-item'>Staff</li>

@@ -1,0 +1,13 @@
+@use '../../styles/mixins' as *;
+
+.main {
+    display: flex;
+}
+
+.page {
+    @include pageLayout;
+}
+
+.create-client-card {
+    @include cardLayout;
+}
