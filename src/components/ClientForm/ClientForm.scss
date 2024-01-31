@@ -1,4 +1,24 @@
 .client-form{
     border-top: 1px solid black;
     padding: 1rem 0;
+    display: flex;
+
+    &__container {
+        padding-left: 2rem;
+    }
+
+    &__wrapper{
+        display: flex;
+        padding: .5rem 0;
+    }
+
+    &__label{
+        width: 8rem;
+    }
+
+    &__input{
+        width: 15rem;
+        border: 2px solid black;
+        border-radius: 5px;
+    }
 }
