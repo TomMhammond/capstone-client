@@ -1,8 +1,46 @@
+import { useNavigate } from 'react-router-dom';
 import './ClientForm.scss';
+import axios from 'axios';
 
 export default function ClientForm(){
+    const navigate = useNavigate();
+
+    const registerSubmitHandler = (e) => {
+        e.preventDefault();
+        const formEl = e.target;
+        const firstName = formEl.firstName.value;
+        const lastName = formEl.lastName.value;
+        const phone = formEl.phone.value;
+        const email = formEl.email.value;
+        const address = formEl.address.value;
+        const city = formEl.city.value;
+        const province = formEl.province.value;
+        const country = formEl.country.value;
+        const postalCode = formEl.postalCode.value;
+
+        const body = 
+            {
+                first_name: firstName,
+                last_name: lastName,
+                phone: phone,
+                email: email,
+                address: address,
+                city: city,
+                province: province,
+                country: country,
+                postal_code: postalCode
+            }
+
+        console.log(body)
+    }
+
+    const cancelClickHandler = (e) =>{
+        e.preventDefault();
+        navigate('/pets') //this is temporary - needs to be changed once dashboard created
+    }
+    
     return(
-        <form className='client-form'>
+        <form className='client-form' onSubmit={registerSubmitHandler}>
             <div className='client-form__container'>
                 <div className='client-form__wrapper'>
                     <label className='client-form__label' htmlFor='firstName'>First Name:</label>
@@ -45,7 +83,7 @@ export default function ClientForm(){
             </div>
             <div className='client-form__container client-form__button-container'>
                 <button className='client-form__button client-form__button--register'>Register</button>
-                <button className='client-form__button client-form__button--cancel'>Cancel</button>
+                <button className='client-form__button client-form__button--cancel' onClick={cancelClickHandler}>Cancel</button>
             </div>
         </form>
     )

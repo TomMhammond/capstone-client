@@ -20,7 +20,7 @@
 
     &__input{
         width: 15rem;
-        border: 2px solid black;
+        border: 1px solid #d3d3d3;
         border-radius: 5px;
     }
 
@@ -44,7 +44,7 @@
 
         &--cancel {
             background-color: $deceased-colour;
-            border-color: $deceased-colour;
+            border-color: $deceased-colour  ;
         }
     }
 }
