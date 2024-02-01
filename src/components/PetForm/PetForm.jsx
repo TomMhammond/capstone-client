@@ -3,10 +3,9 @@ import './PetForm.scss';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-export default function PetForm(props){
+export default function PetForm({ token }){
     const [ clientId, setClientId ] = useState(null);
     const navigate = useNavigate();
-    const token = sessionStorage.authToken;
 
     useEffect(() => {
         const fetchUserId = async () => {

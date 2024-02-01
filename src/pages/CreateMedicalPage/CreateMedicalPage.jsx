@@ -4,7 +4,7 @@ import SideNav from '../../components/SideNav/SideNav';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
-export default function CreateMedicalPage(){
+export default function CreateMedicalPage({token}){
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -19,7 +19,7 @@ export default function CreateMedicalPage(){
             <section className='page'>
                 <div className='create-medical-card'>
                     <h2 className='create-medical-card__title'>Pet Medical Information</h2>
-                    <MedicalForm />
+                    <MedicalForm token={token}/>
                 </div>
             </section>
         </main>

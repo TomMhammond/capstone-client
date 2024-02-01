@@ -2,9 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import './ClientForm.scss';
 import axios from 'axios';
 
-export default function ClientForm(){
+export default function ClientForm({ token }){
     const navigate = useNavigate();
-    const token = sessionStorage.authToken;
 
     const registerSubmitHandler = async (e) => {
         e.preventDefault();

@@ -2,9 +2,8 @@ import { useEffect, useState } from 'react';
 import './MedicalForm.scss';
 import axios from 'axios';
 
-export default function MedicalForm(){
+export default function MedicalForm({ token }){
     const [ petId, setPetId ] = useState(null);
-    const token = sessionStorage.authToken;
 
     useEffect(() => {
         const fetchPetId = async () => {

@@ -3,13 +3,12 @@ import './Medical.scss';
 import axios from 'axios';
 
 
-export default function Medical({ id }){
+export default function Medical({ id, token }){
     const [ medical, setMedical ] = useState([]);
     let neuturedStatus;
     let vaccineStatus;
     const allergies = [];
     const conditions = [];
-    const token = sessionStorage.authToken;
     
     useEffect(() => {
         const fetchMedical = async () => {

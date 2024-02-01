@@ -5,10 +5,9 @@ import SideNav from '../../components/SideNav/SideNav';
 import Client from '../../components/Client/Client';
 import { useNavigate } from 'react-router-dom';
 
-export default function ClientPage(){
+export default function ClientPage({ token }){
     const [clientList, setCLientList ] = useState([]);
     const navigate = useNavigate();
-    const token = sessionStorage.authToken;
    
     useEffect(() => {
         if(!sessionStorage.authToken){

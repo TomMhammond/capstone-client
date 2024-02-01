@@ -5,11 +5,10 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import PetList from '../../components/PetListItem/PetListItem';
 
-export default function SingleClientPage(){
+export default function SingleClientPage({ token }){
     const params = useParams();
     const id = params.id;
     const navigate = useNavigate();
-    const token = sessionStorage.authToken;
    
     const [client, setClient ] = useState(null);
     const [pets, setPets ] = useState([]);

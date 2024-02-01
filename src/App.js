@@ -11,18 +11,19 @@ import CreateMedicalPage from "./pages/CreateMedicalPage/CreateMedicalPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 
 function App() {
+  const token = sessionStorage.authToken;
   return (
     <BrowserRouter>
       <Header />
       <Routes>
         <Route path="/" element={<LoginPage />} />
-        <Route path="/clients" element={<ClientPage />}/>
-        <Route path="/clients/:id" element={<SingleClientPage />} />
-        <Route path="/pets" element={<PetsPage />} />
-        <Route path="/pets/:id" element={<SinglePetPage />} />
-        <Route path="/register/client" element={<CreateClientPage />} />
-        <Route path="/register/pet" element={<CreatePetPage />} />
-        <Route path="/register/medical" element={<CreateMedicalPage />} />
+        <Route path="/clients" element={<ClientPage token={token}/>}/>
+        <Route path="/clients/:id" element={<SingleClientPage token={token}/>} />
+        <Route path="/pets" element={<PetsPage token={token}/>} />
+        <Route path="/pets/:id" element={<SinglePetPage token={token}/>} />
+        <Route path="/register/client" element={<CreateClientPage token={token}/>} />
+        <Route path="/register/pet" element={<CreatePetPage token={token}/>} />
+        <Route path="/register/medical" element={<CreateMedicalPage token={token}/>} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
     </BrowserRouter>

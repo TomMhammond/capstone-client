@@ -5,12 +5,11 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Medical from '../../components/Medical/Medical';
 
-export default function SinglePetPage(){
+export default function SinglePetPage({ token }){
    const [ pet, setPet ] = useState(null);
    const params = useParams();
    const id = params.id;
    const navigate = useNavigate();
-   const token = sessionStorage.authToken;
 
    useEffect(() => {
        if(!sessionStorage.authToken){
@@ -89,7 +88,7 @@ export default function SinglePetPage(){
                         </div>
                     </div>
                     <h2 className='pet-card__title'>Medical Chart</h2>
-                    <Medical id={id}/>
+                    <Medical id={id} token={token}/>
                 </div>
             </section>
         </main>
