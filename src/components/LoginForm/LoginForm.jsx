@@ -17,7 +17,9 @@ export default function LoginForm(){
         try{
             const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/login`, body);
             sessionStorage.setItem('authToken', response.data.token);
-            navigate('/pets')
+            setTimeout(()=> {
+                navigate('/pets');
+            }, 1000)
         } catch(err) {
             console.error(err);
         }

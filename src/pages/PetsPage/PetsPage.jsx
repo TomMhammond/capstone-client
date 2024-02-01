@@ -5,9 +5,10 @@ import axios from 'axios';
 import SideNav from '../../components/SideNav/SideNav';
 import Pet from '../../components/Pet/Pet';
 
-export default function PetsPage({ token }){
+export default function PetsPage(){
     const [ petList, setPetList ] = useState([]);
     const navigate = useNavigate();
+    const token = sessionStorage.authToken;
 
     useEffect(() => {
         if(!sessionStorage.authToken){
