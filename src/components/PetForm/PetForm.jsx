@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import './PetForm.scss';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function PetForm(props){
     const [ clientId, setClientId ] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchUserId = async () => {
@@ -20,7 +22,7 @@ export default function PetForm(props){
         const formEl = e.target;
         const name = formEl.name.value;
         const species = formEl.species.value;
-        const breed = formEl.species.value;
+        const breed = formEl.breed.value;
         const colour = formEl.colour.value;
         const weight = Number(formEl.weight.value);
         const gender = formEl.gender.value;
@@ -39,7 +41,8 @@ export default function PetForm(props){
                 is_deceased: 0
             }
 
-        await axios.post(`${process.env.REACT_APP_BASE_URL}/pets`, body)
+        await axios.post(`${process.env.REACT_APP_BASE_URL}/pets`, body);
+        navigate('/register/medical')
     }
 
     const cancelClickHandler = (e) => {
