@@ -14,11 +14,13 @@ function App() {
   const token = sessionStorage.authToken;
   const [ isLoggedIn, setIsLoggedIn ] = useState(false);
   const [ userName, setUserName ] = useState(null);
+  const [ access, setAccess] = useState(null);
+  console.log(access)
   return (
     <BrowserRouter>
-      <Header isLoggedIn={isLoggedIn} userName={userName} setIsLoggedIn={setIsLoggedIn} setUserName={setUserName}/>
+      <Header isLoggedIn={isLoggedIn} userName={userName} setIsLoggedIn={setIsLoggedIn} setUserName={setUserName} setAccess={setAccess}/>
       <Routes>
-        <Route path="/" element={<LoginPage setIsLoggedIn={setIsLoggedIn} setUserName={setUserName}/>} />
+        <Route path="/" element={<LoginPage setIsLoggedIn={setIsLoggedIn} setUserName={setUserName} setAccess={setAccess}/>} />
         <Route path="/clients" element={<ClientPage token={token}/>}/>
         <Route path="/clients/:id" element={<SingleClientPage token={token}/>} />
         <Route path="/pets" element={<PetsPage token={token}/>} />

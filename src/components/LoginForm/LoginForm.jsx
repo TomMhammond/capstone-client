@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import './LoginForm.scss';
 import axios from 'axios';
 
-export default function LoginForm({ setIsLoggedIn, setUserName }){
+export default function LoginForm({ setIsLoggedIn, setUserName, setAccess }){
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -19,6 +19,7 @@ export default function LoginForm({ setIsLoggedIn, setUserName }){
             sessionStorage.setItem('authToken', response.data.token);
             setIsLoggedIn(true);
             setUserName(userName);
+            setAccess(response.data.access)
             navigate('/pets')
         } catch(err) {
             console.error(err);

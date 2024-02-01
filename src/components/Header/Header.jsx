@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import './Header.scss';
 
-export default function Header({ isLoggedIn, userName, setIsLoggedIn, setUserName }){
+export default function Header({ isLoggedIn, userName, setIsLoggedIn, setUserName, setAccess }){
     const navigate = useNavigate();
     let text;
     let logOut;
@@ -14,6 +14,7 @@ export default function Header({ isLoggedIn, userName, setIsLoggedIn, setUserNam
     const clickHandler = () => {
         setIsLoggedIn(false);
         setUserName(null);
+        setAccess(null);
         navigate('/')
     }
 
