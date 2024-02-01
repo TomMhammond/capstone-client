@@ -9,7 +9,7 @@ export default function CreateClientPage({ token, access }){
 
     useEffect(() => {
         if(!sessionStorage.authToken){
-            return navigate('/login');
+            return navigate('/');
         }
     }, [])
     

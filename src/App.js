@@ -9,6 +9,7 @@ import CreateClientPage from "./pages/CreateClientPage/CreateClientPage";
 import CreatePetPage from "./pages/CreatePetPage/CreatePetPage";
 import CreateMedicalPage from "./pages/CreateMedicalPage/CreateMedicalPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import DashboardPage from "./pages/DashboardPage/DashboardPage";
 
 function App() {
   const token = sessionStorage.authToken;
@@ -21,6 +22,7 @@ function App() {
       <Header isLoggedIn={isLoggedIn} userName={userName} setIsLoggedIn={setIsLoggedIn} setUserName={setUserName} setAccess={setAccess}/>
       <Routes>
         <Route path="/" element={<LoginPage setIsLoggedIn={setIsLoggedIn} setUserName={setUserName} setAccess={setAccess}/>} />
+        <Route path="/dashboard" element={<DashboardPage access={access} />} />
         <Route path="/clients" element={<ClientPage token={token} access={access}/>}/>
         <Route path="/clients/:id" element={<SingleClientPage token={token} access={access}/>} />
         <Route path="/pets" element={<PetsPage token={token} access={access}/>} />
@@ -28,7 +30,6 @@ function App() {
         <Route path="/register/client" element={<CreateClientPage token={token} access={access}/>} />
         <Route path="/register/pet" element={<CreatePetPage token={token} access={access}/>} />
         <Route path="/register/medical" element={<CreateMedicalPage token={token} access={access}/>} />
-        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </BrowserRouter>
   );

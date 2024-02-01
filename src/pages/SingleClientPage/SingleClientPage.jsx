@@ -15,7 +15,7 @@ export default function SingleClientPage({ token, access }){
 
     useEffect(() => {
         if(!sessionStorage.authToken){
-            return navigate('/login');
+            return navigate('/');
         }
     }, []);
 

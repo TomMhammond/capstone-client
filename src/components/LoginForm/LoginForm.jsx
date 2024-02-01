@@ -20,7 +20,7 @@ export default function LoginForm({ setIsLoggedIn, setUserName, setAccess }){
             setIsLoggedIn(true);
             setUserName(userName);
             setAccess(response.data.access)
-            navigate('/pets')
+            navigate('/dashboard')
         } catch(err) {
             console.error(err);
         }
