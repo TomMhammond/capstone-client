@@ -1,0 +1,22 @@
+@use '../../styles/variables' as *;
+
+.login-form {
+    border-top: 1px solid black;
+    padding: 1rem 0;
+    display: flex;
+
+    &__wrapper{
+        display: flex;
+        padding: .5rem 2rem;
+    }
+
+    &__label{
+        width: 8rem;
+    }
+
+    &__input{
+        width: 15rem;
+        border: 1px solid #d3d3d3;
+        border-radius: 5px;
+    }
+}

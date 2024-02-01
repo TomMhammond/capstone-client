@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import ClientPage from "./pages/ClientPage/ClientPage";
 import Header from './components/Header/Header'
 import SingleClientPage from "./pages/SingleClientPage/SingleClientPage";
@@ -7,6 +8,7 @@ import SinglePetPage from "./pages/SinglePetPage/SinglePetPage";
 import CreateClientPage from "./pages/CreateClientPage/CreateClientPage";
 import CreatePetPage from "./pages/CreatePetPage/CreatePetPage";
 import CreateMedicalPage from "./pages/CreateMedicalPage/CreateMedicalPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
         <Route path="/register/client" element={<CreateClientPage />} />
         <Route path="/register/pet" element={<CreatePetPage />} />
         <Route path="/register/medical" element={<CreateMedicalPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </BrowserRouter>
   );
