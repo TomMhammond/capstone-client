@@ -1,8 +1,18 @@
 import './CreateMedicalPage.scss';
 import MedicalForm from '../../components/MedicalForm/MedicalForm';
 import SideNav from '../../components/SideNav/SideNav';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export default function CreateMedicalPage(){
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if(!sessionStorage.authToken){
+            return navigate('/login');
+        }
+    }, [])
+    
     return(
         <main className='main'>
             <SideNav />

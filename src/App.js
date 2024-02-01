@@ -15,6 +15,7 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
+        <Route path="/" element={<LoginPage />} />
         <Route path="/clients" element={<ClientPage />}/>
         <Route path="/clients/:id" element={<SingleClientPage />} />
         <Route path="/pets" element={<PetsPage />} />

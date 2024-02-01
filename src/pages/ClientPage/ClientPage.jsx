@@ -3,9 +3,18 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import SideNav from '../../components/SideNav/SideNav';
 import Client from '../../components/Client/Client';
+import { useNavigate } from 'react-router-dom';
 
 export default function ClientPage(){
     const [clientList, setCLientList ] = useState([]);
+    const navigate = useNavigate();
+   
+    useEffect(() => {
+        if(!sessionStorage.authToken){
+            return navigate('/login');
+        }
+    }, [])
+   
     useEffect(() => {
         const fetchClientList = async () => {
             const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/clients`);

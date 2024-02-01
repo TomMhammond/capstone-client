@@ -1,6 +1,6 @@
 import SideNav from '../../components/SideNav/SideNav';
 import './SingleClientPage.scss';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import PetList from '../../components/PetListItem/PetListItem';
@@ -8,9 +8,16 @@ import PetList from '../../components/PetListItem/PetListItem';
 export default function SingleClientPage(){
     const params = useParams();
     const id = params.id;
+    const navigate = useNavigate();
    
     const [client, setClient ] = useState(null);
     const [pets, setPets ] = useState([]);
+
+    useEffect(() => {
+        if(!sessionStorage.authToken){
+            return navigate('/login');
+        }
+    }, []);
 
     useEffect(() => {
         const fetchSingleClient = async () => {

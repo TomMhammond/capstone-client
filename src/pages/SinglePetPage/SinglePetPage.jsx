@@ -2,13 +2,20 @@ import axios from 'axios';
 import SideNav from '../../components/SideNav/SideNav';
 import './SinglePetPage.scss';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Medical from '../../components/Medical/Medical';
 
 export default function SinglePetPage(){
    const [ pet, setPet ] = useState(null);
    const params = useParams();
    const id = params.id;
+   const navigate = useNavigate();
+
+   useEffect(() => {
+       if(!sessionStorage.authToken){
+        return navigate('/login');
+       } 
+   }, [])
 
    useEffect(() => {
     const fetchPetData = async () => {

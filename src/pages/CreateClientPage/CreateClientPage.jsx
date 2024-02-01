@@ -1,8 +1,18 @@
+import { useNavigate } from 'react-router-dom';
 import ClientForm from '../../components/ClientForm/ClientForm';
 import SideNav from '../../components/SideNav/SideNav';
 import './CreateClientPage.scss';
+import { useEffect } from 'react';
 
 export default function CreateClientPage(){
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if(!sessionStorage.authToken){
+            return navigate('/login');
+        }
+    }, [])
+    
     return(
         <main className='main'>
             <SideNav />
