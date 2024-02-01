@@ -10,6 +10,7 @@ export default function SinglePetPage(){
    const params = useParams();
    const id = params.id;
    const navigate = useNavigate();
+   const token = sessionStorage.authToken;
 
    useEffect(() => {
        if(!sessionStorage.authToken){
@@ -19,7 +20,11 @@ export default function SinglePetPage(){
 
    useEffect(() => {
     const fetchPetData = async () => {
-        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/pets/${id}`);
+        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/pets/${id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
         setPet(response.data);
     }
     fetchPetData();

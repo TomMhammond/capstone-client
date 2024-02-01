@@ -9,6 +9,7 @@ export default function SingleClientPage(){
     const params = useParams();
     const id = params.id;
     const navigate = useNavigate();
+    const token = sessionStorage.authToken;
    
     const [client, setClient ] = useState(null);
     const [pets, setPets ] = useState([]);
@@ -29,7 +30,11 @@ export default function SingleClientPage(){
 
     useEffect(() => {
         const fetchClientPets = async () => {
-            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/pets/client/${id}`);
+            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/pets/client/${id}`,{
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
             setPets(response.data);
         }
         fetchClientPets();

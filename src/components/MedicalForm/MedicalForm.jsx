@@ -3,11 +3,16 @@ import './MedicalForm.scss';
 import axios from 'axios';
 
 export default function MedicalForm(){
-    const [ petId, setPetId ] = useState(null)
+    const [ petId, setPetId ] = useState(null);
+    const token = sessionStorage.authToken;
 
     useEffect(() => {
         const fetchPetId = async () => {
-            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/pets`);
+            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/pets`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
             const arrLenght = response.data.length;
             const id = response.data[arrLenght - 1].id;
             setPetId(id);

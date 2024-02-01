@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 export default function ClientPage(){
     const [clientList, setCLientList ] = useState([]);
     const navigate = useNavigate();
+    const token = sessionStorage.authToken;
    
     useEffect(() => {
         if(!sessionStorage.authToken){
@@ -17,7 +18,11 @@ export default function ClientPage(){
    
     useEffect(() => {
         const fetchClientList = async () => {
-            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/clients`);
+            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/clients`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
             setCLientList(response.data)
         } 
         fetchClientList();

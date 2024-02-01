@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 export default function PetForm(props){
     const [ clientId, setClientId ] = useState(null);
     const navigate = useNavigate();
+    const token = sessionStorage.authToken;
 
     useEffect(() => {
         const fetchUserId = async () => {
@@ -41,7 +42,11 @@ export default function PetForm(props){
                 is_deceased: 0
             }
 
-        await axios.post(`${process.env.REACT_APP_BASE_URL}/pets`, body);
+        await axios.post(`${process.env.REACT_APP_BASE_URL}/pets`, body, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
         navigate('/register/medical')
     }
 
