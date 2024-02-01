@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './PetsPage.scss';
 import axios from 'axios';
 import SideNav from '../../components/SideNav/SideNav';
@@ -6,6 +7,13 @@ import Pet from '../../components/Pet/Pet';
 
 export default function PetsPage(){
     const [ petList, setPetList ] = useState([]);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if(!sessionStorage.authToken){
+            navigate('/login')
+        }
+    })
 
     useEffect(() => {
         const fetchPetList = async () => {
