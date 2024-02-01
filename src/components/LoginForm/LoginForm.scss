@@ -5,9 +5,13 @@
     padding: 1rem 0;
     display: flex;
 
+    &__container {
+        padding-left: 2rem;
+    }
+
     &__wrapper{
         display: flex;
-        padding: .5rem 2rem;
+        padding: .5rem 0;
     }
 
     &__label{
@@ -18,5 +22,12 @@
         width: 15rem;
         border: 1px solid #d3d3d3;
         border-radius: 5px;
+    }
+
+    &__button {
+        border-radius: 20px;
+        margin-top: 1rem;
+        padding: .25rem .5rem;
+        border-style: solid;
     }
 }
