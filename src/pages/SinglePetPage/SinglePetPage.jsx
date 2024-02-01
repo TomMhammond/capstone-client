@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Medical from '../../components/Medical/Medical';
 
-export default function SinglePetPage({ token }){
+export default function SinglePetPage({ token, access }){
    const [ pet, setPet ] = useState(null);
    const params = useParams();
    const id = params.id;
@@ -54,7 +54,7 @@ export default function SinglePetPage({ token }){
    
     return(
         <main className='main'>
-            <SideNav />
+            <SideNav access={access}/>
             <section className='page'>
                 <div className={`pet-card ${statusClass}`}>
                     <div className='pet-card__head'>

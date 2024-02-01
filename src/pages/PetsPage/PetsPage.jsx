@@ -5,7 +5,7 @@ import axios from 'axios';
 import SideNav from '../../components/SideNav/SideNav';
 import Pet from '../../components/Pet/Pet';
 
-export default function PetsPage(){
+export default function PetsPage({ access }){
     const [ petList, setPetList ] = useState([]);
     const navigate = useNavigate();
     const token = sessionStorage.authToken;
@@ -34,7 +34,7 @@ export default function PetsPage(){
 
     return(
         <main className='main'>
-            <SideNav />
+            <SideNav access={access}/>
             <section className='page'>
                 <div className='pet-card'>
                     <h2 className='pet-card__title'>Pets In Practice</h2>

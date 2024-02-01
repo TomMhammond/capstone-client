@@ -5,7 +5,7 @@ import SideNav from '../../components/SideNav/SideNav';
 import Client from '../../components/Client/Client';
 import { useNavigate } from 'react-router-dom';
 
-export default function ClientPage({ token }){
+export default function ClientPage({ token, access }){
     const [clientList, setCLientList ] = useState([]);
     const navigate = useNavigate();
    
@@ -33,7 +33,7 @@ export default function ClientPage({ token }){
 
     return(
         <main className='main'>
-            <SideNav />
+            <SideNav access={access}/>
             <section className='page'>
                 <div className='client-card'>
                     <h2 className='client-card__title'>Clients</h2>

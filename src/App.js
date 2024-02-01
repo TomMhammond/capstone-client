@@ -15,19 +15,19 @@ function App() {
   const [ isLoggedIn, setIsLoggedIn ] = useState(false);
   const [ userName, setUserName ] = useState(null);
   const [ access, setAccess] = useState(null);
-  console.log(access)
+
   return (
     <BrowserRouter>
       <Header isLoggedIn={isLoggedIn} userName={userName} setIsLoggedIn={setIsLoggedIn} setUserName={setUserName} setAccess={setAccess}/>
       <Routes>
         <Route path="/" element={<LoginPage setIsLoggedIn={setIsLoggedIn} setUserName={setUserName} setAccess={setAccess}/>} />
-        <Route path="/clients" element={<ClientPage token={token}/>}/>
-        <Route path="/clients/:id" element={<SingleClientPage token={token}/>} />
-        <Route path="/pets" element={<PetsPage token={token}/>} />
-        <Route path="/pets/:id" element={<SinglePetPage token={token}/>} />
-        <Route path="/register/client" element={<CreateClientPage token={token}/>} />
-        <Route path="/register/pet" element={<CreatePetPage token={token}/>} />
-        <Route path="/register/medical" element={<CreateMedicalPage token={token}/>} />
+        <Route path="/clients" element={<ClientPage token={token} access={access}/>}/>
+        <Route path="/clients/:id" element={<SingleClientPage token={token} access={access}/>} />
+        <Route path="/pets" element={<PetsPage token={token} access={access}/>} />
+        <Route path="/pets/:id" element={<SinglePetPage token={token} access={access}/>} />
+        <Route path="/register/client" element={<CreateClientPage token={token} access={access}/>} />
+        <Route path="/register/pet" element={<CreatePetPage token={token} access={access}/>} />
+        <Route path="/register/medical" element={<CreateMedicalPage token={token} access={access}/>} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
     </BrowserRouter>

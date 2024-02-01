@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import PetList from '../../components/PetListItem/PetListItem';
 
-export default function SingleClientPage({ token }){
+export default function SingleClientPage({ token, access }){
     const params = useParams();
     const id = params.id;
     const navigate = useNavigate();
@@ -49,7 +49,7 @@ export default function SingleClientPage({ token }){
 
     return(
         <main className='main'>
-            <SideNav />
+            <SideNav access={access}/>
             <section className='page'>
                 <div className='client-card'>
                     <h2 className='client-card__title'>{`${client.first_name} ${client.last_name}`}</h2>

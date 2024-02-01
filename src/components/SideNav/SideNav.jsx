@@ -1,7 +1,7 @@
 import './SideNav.scss';
 import { useNavigate } from 'react-router-dom';
 
-export default function SideNav(){
+export default function SideNav( {access} ){
     const navigate = useNavigate();
     
     const clickRegister = () => {
@@ -15,14 +15,28 @@ export default function SideNav(){
     const clickPets = () => {
         navigate('/pets');
     }
+    let clients;
+    let register;
+    let pets;
+    if(access === 'admin' || access === 'staff'){
+        clients = 'Clients';
+        register = 'Register';
+        pets = 'Pets';
+    }
+
+    let newUser;
+    if(access === 'admin'){
+        newUser = 'Add User'
+    }
 
     return(
         <aside className='nav'>
             <ul className='nav__list'>
-                <li className='nav__list-item' onClick={clickRegister}>Register</li>
-                <li className='nav__list-item' onClick={clickClients}>Clients</li>
-                <li className='nav__list-item' onClick={clickPets}>Pets</li>
+                <li className='nav__list-item' onClick={clickRegister}>{register}</li>
+                <li className='nav__list-item' onClick={clickClients}>{clients}</li>
+                <li className='nav__list-item' onClick={clickPets}>{pets}</li>
                 <li className='nav__list-item'>Staff</li>
+                <li className='nav__list-item'>{newUser}</li>
             </ul>
         </aside>
     )

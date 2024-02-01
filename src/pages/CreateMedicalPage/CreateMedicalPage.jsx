@@ -4,7 +4,7 @@ import SideNav from '../../components/SideNav/SideNav';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
-export default function CreateMedicalPage({token}){
+export default function CreateMedicalPage({token, access}){
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -15,7 +15,7 @@ export default function CreateMedicalPage({token}){
     
     return(
         <main className='main'>
-            <SideNav />
+            <SideNav access={access}/>
             <section className='page'>
                 <div className='create-medical-card'>
                     <h2 className='create-medical-card__title'>Pet Medical Information</h2>

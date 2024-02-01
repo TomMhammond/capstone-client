@@ -34,7 +34,7 @@ export default function LoginForm({ setIsLoggedIn, setUserName, setAccess }){
                     <input className='login-form__input' type='text' name='userName' id='userName'></input>
                 </div>
                 <div className='login-form__wrapper'>
-                    <label className='login-form__label' htmlFor='password'>Username:</label>
+                    <label className='login-form__label' htmlFor='password'>Password:</label>
                     <input className='login-form__input' type='password' name='password' id='password'></input>
                 </div>
             </div>
