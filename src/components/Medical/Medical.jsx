@@ -9,10 +9,15 @@ export default function Medical({ id }){
     let vaccineStatus;
     const allergies = [];
     const conditions = [];
+    const token = sessionStorage.authToken;
     
     useEffect(() => {
         const fetchMedical = async () => {
-            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/medical/${id}`);
+            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/medical/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
             setMedical(response.data[0]);
         }
         fetchMedical();

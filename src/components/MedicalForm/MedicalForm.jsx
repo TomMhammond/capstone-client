@@ -76,7 +76,11 @@ export default function MedicalForm(){
                 condition3
             }
 
-        await axios.post(`${process.env.REACT_APP_BASE_URL}/medical`, body)
+        await axios.post(`${process.env.REACT_APP_BASE_URL}/medical`, body, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        })
     }
 
     const cancelClickHandler = (e) => {
