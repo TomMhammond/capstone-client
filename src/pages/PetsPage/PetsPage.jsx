@@ -8,6 +8,7 @@ import Pet from '../../components/Pet/Pet';
 export default function PetsPage(){
     const [ petList, setPetList ] = useState([]);
     const navigate = useNavigate();
+    const token = sessionStorage.authToken;
 
     useEffect(() => {
         if(!sessionStorage.authToken){
@@ -17,7 +18,11 @@ export default function PetsPage(){
 
     useEffect(() => {
         const fetchPetList = async () => {
-            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/pets`);
+                const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/pets`,{
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
             setPetList(response.data);
         }
         fetchPetList();
