@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import './LoginForm.scss';
 import axios from 'axios';
 
-export default function LoginForm(){
+export default function LoginForm({ setIsLoggedIn, setUserName }){
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -17,6 +17,8 @@ export default function LoginForm(){
         try{
             const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/login`, body);
             sessionStorage.setItem('authToken', response.data.token);
+            setIsLoggedIn(true);
+            setUserName(userName);
             navigate('/pets')
         } catch(err) {
             console.error(err);

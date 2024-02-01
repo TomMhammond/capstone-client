@@ -12,11 +12,13 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 
 function App() {
   const token = sessionStorage.authToken;
+  const [ isLoggedIn, setIsLoggedIn ] = useState(false);
+  const [ userName, setUserName ] = useState(null);
   return (
     <BrowserRouter>
-      <Header />
+      <Header isLoggedIn={isLoggedIn} userName={userName} setIsLoggedIn={setIsLoggedIn} setUserName={setUserName}/>
       <Routes>
-        <Route path="/" element={<LoginPage />} />
+        <Route path="/" element={<LoginPage setIsLoggedIn={setIsLoggedIn} setUserName={setUserName}/>} />
         <Route path="/clients" element={<ClientPage token={token}/>}/>
         <Route path="/clients/:id" element={<SingleClientPage token={token}/>} />
         <Route path="/pets" element={<PetsPage token={token}/>} />

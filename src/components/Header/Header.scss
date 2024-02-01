@@ -17,5 +17,12 @@
 
     &__list {
         list-style-type: none;
+        display: flex;
+    }
+
+    &__list-item {
+        &--left {
+            padding-right: 3rem;
+        }
     }
 }
