@@ -10,7 +10,11 @@ export default function PetForm(props){
 
     useEffect(() => {
         const fetchUserId = async () => {
-            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/clients`);
+            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/clients`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
             const arrLenght = response.data.length;
             const id = response.data[arrLenght - 1].id;
             setClientId(id);

@@ -4,6 +4,7 @@ import axios from 'axios';
 
 export default function ClientForm(){
     const navigate = useNavigate();
+    const token = sessionStorage.authToken;
 
     const registerSubmitHandler = async (e) => {
         e.preventDefault();
@@ -31,7 +32,11 @@ export default function ClientForm(){
                 postal_code: postalCode
             }
 
-        await axios.post(`${process.env.REACT_APP_BASE_URL}/clients`, body);
+        await axios.post(`${process.env.REACT_APP_BASE_URL}/clients`, body, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
         navigate('/register/pet')
 
     }

@@ -22,7 +22,11 @@ export default function SingleClientPage(){
 
     useEffect(() => {
         const fetchSingleClient = async () => {
-            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/clients/${id}`);
+            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/clients/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
             setClient(response.data);
         }
         fetchSingleClient();
