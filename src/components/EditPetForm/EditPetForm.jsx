@@ -65,7 +65,7 @@ export default function EditPetForm({ token }){
         }
         const tempermentEl = Number(formEl.temperment.value);
         let temperment;
-        if(!tempermentEl){
+        if(!tempermentEl && tempermentEl !== 0){
             temperment = petData.is_aggressive;
         } else {
             temperment = tempermentEl;
