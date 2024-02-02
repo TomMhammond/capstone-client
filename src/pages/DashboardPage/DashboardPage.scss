@@ -18,5 +18,15 @@
 
     &__info {
         padding-left: 2rem;
+
+        &--gap {
+            padding-left: 2rem;
+            padding-top: 1rem;
+        }
+    }
+
+    &__list {
+        padding-left: 2rem;
+        padding-top: 1rem;
     }
 }

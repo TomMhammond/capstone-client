@@ -1,19 +1,9 @@
-import { useEffect } from 'react';
 import SideNav from '../../components/SideNav/SideNav';
 import './DashboardPage.scss';
-import { useNavigate } from 'react-router-dom';
 
 export default function DashboardPage( {access, userName} ){
-    const navigate = useNavigate();
-    useEffect(() => {
-        if(!sessionStorage.authToken){
-            return navigate('/');
-        }
-    }, [])
-
     const date = new Date();
     const hour = date.getHours();
-    console.log(hour);
 
     let greeting;
     if(hour >= 0 && hour < 6 ){
@@ -26,6 +16,15 @@ export default function DashboardPage( {access, userName} ){
         greeting = `Good Evening ${userName}`;
     }
 
+
+    let sentence;
+    if(access === 'client'){
+
+        sentence = `${userName}, you have 3 pets in practice: Spike, Crusher, and Fred.`
+    } else {
+        sentence = `${userName}, select a navigation link to begin.`
+    }
+
     return(
         <main className='main'>
             <SideNav access={access}/>
@@ -33,6 +32,7 @@ export default function DashboardPage( {access, userName} ){
                 <div className='dashboard-card'>
                     <h2 className='dashboard-card__title'>Dashboard</h2>
                     <p className='dashboard-card__info'>{greeting}</p>
+                    <p className='dashboard-card__info--gap'>{sentence}</p>
                 </div>
             </section>
         </main>
