@@ -22,7 +22,7 @@ function App() {
       <Header isLoggedIn={isLoggedIn} userName={userName} setIsLoggedIn={setIsLoggedIn} setUserName={setUserName} setAccess={setAccess}/>
       <Routes>
         <Route path="/" element={<LoginPage setIsLoggedIn={setIsLoggedIn} setUserName={setUserName} setAccess={setAccess}/>} />
-        <Route path="/dashboard" element={<DashboardPage access={access} />} />
+        <Route path="/dashboard" element={<DashboardPage access={access} userName={userName}/>} />
         <Route path="/clients" element={<ClientPage token={token} access={access}/>}/>
         <Route path="/clients/:id" element={<SingleClientPage token={token} access={access}/>} />
         <Route path="/pets" element={<PetsPage token={token} access={access}/>} />

@@ -15,6 +15,7 @@ export default function Header({ isLoggedIn, userName, setIsLoggedIn, setUserNam
         setIsLoggedIn(false);
         setUserName(null);
         setAccess(null);
+        sessionStorage.removeItem('authToken')
         navigate('/')
     }
 

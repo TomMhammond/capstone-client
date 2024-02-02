@@ -12,7 +12,7 @@ export default function PetsPage({ access }){
 
     useEffect(() => {
         if(!sessionStorage.authToken){
-            navigate('/login')
+            navigate('/')
         }
     })
 
