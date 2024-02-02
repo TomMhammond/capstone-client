@@ -1,10 +1,87 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import '../PetForm/PetForm.scss';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-export default function EditPetForm(){
+export default function EditPetForm({ token }){
     const navigate = useNavigate();
     const params = useParams();
     const id = params.id;
+
+    const [ petData, setPetData ] = useState(null);
+
+    useEffect(() => {
+        if(!sessionStorage.authToken){
+            return navigate('/');
+        };
+        const fetchData = async () => {
+            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/pets/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            setPetData(response.data);
+        };
+        fetchData();
+    }, []);
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+        const formEl = e.target;
+        const nameEl = formEl.name.value;
+        let name;
+        if(!nameEl){
+            name = petData.name;
+        } else {
+            name = nameEl;
+        };
+        const speciesEl = formEl.species.value;
+        let species;
+        if(!speciesEl){
+            species = petData.species;
+        } else {
+            species = speciesEl;
+        };
+        const breedEl = formEl.breed.value;
+        let breed;
+        if(!breedEl){
+            breed = petData.breed;
+        } else {
+            breed = breedEl;
+        }
+        const colourEl = formEl.colour.value;
+        let colour;
+        if(!colourEl){
+            colour = petData.colour;
+        } else {
+            colour = colourEl;
+        }
+        const weightEl = Number(formEl.weight.value);
+        let weight;
+        if(!weightEl){
+            weight = petData.weight;
+        } else {
+            weight = weightEl;
+        }
+        const tempermentEl = Number(formEl.temperment.value);
+        let temperment;
+        if(!tempermentEl){
+            temperment = petData.is_aggressive;
+        } else {
+            temperment = tempermentEl;
+        }
+
+        const body = 
+            {
+                name,
+                species,
+                breed,
+                colour,
+                is_aggressive: temperment,
+                weight,
+                is_deceased: 0
+            }
+    };
 
     const cancelClickHandler = (e) => {
         e.preventDefault();
@@ -12,7 +89,7 @@ export default function EditPetForm(){
     }
     
     return(
-        <form className='pet-form'>
+        <form className='pet-form' onSubmit={submitHandler}>
         <div className='pet-form__container'>
             <div className='pet-form__wrapper'>
                 <label className='pet-form__label' htmlFor='name'>Name:</label>
@@ -36,17 +113,6 @@ export default function EditPetForm(){
             </div>
         </div>
         <div className='pet-form__container'>
-            <fieldset className='pet-form__radio-field'>
-                <legend>Gender:</legend>
-                    <div>
-                        <input type="radio" id="male" name="gender" value="male" />
-                        <label htmlFor="male">Male</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="female" name="gender" value="female" />
-                        <label htmlFor="female">Female</label>
-                    </div>
-            </fieldset>
             <fieldset className='pet-form__radio-field pet-form__temperment'>
                 <legend>Temperment:</legend>
                     <div>
