@@ -11,6 +11,7 @@ import CreateMedicalPage from "./pages/CreateMedicalPage/CreateMedicalPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import EditClientPage from "./pages/EditClientPage/EditClientPage";
+import EditPetPage from "./pages/EditPetPage/EditPetPage";
 
 function App() {
   const token = sessionStorage.authToken;
@@ -32,6 +33,7 @@ function App() {
         <Route path="/register/pet" element={<CreatePetPage token={token} access={access}/>} />
         <Route path="/register/medical" element={<CreateMedicalPage token={token} access={access}/>} />
         <Route path="/edit/client/:id" element={<EditClientPage access={access} token={token}/>} />
+        <Route path="/edit/pet/:id" element={<EditPetPage access={access} token={token}/>} />
       </Routes>
     </BrowserRouter>
   );

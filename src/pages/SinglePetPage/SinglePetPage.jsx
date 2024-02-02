@@ -48,6 +48,10 @@ export default function SinglePetPage({ token, access }){
    } else {
     statusClass = 'pet-card--active'
    }
+
+   const clickHandler = () => {
+        navigate(`/edit/pet/${id}`)
+   }
    
     return(
         <main className='main'>
@@ -67,6 +71,9 @@ export default function SinglePetPage({ token, access }){
                             <div className='pet-card__subcontainer'>
                                 <p className='pet-card__label'>Breed: </p>
                                 <p className='pet-card__breed'>{pet.breed}</p>
+                            </div>
+                            <div className='pet-card__subcontainer'>
+                                <div className='pet-card__button' onClick={clickHandler}>Edit</div>
                             </div>
                         </div>
                         <div className='pet-card__wrapper'>
