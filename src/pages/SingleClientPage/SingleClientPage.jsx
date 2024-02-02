@@ -47,6 +47,10 @@ export default function SingleClientPage({ token, access }){
         return <></>
     }
 
+    const clickHandler = () => {
+        navigate(`/edit/client/${id}`);
+    }
+
     return(
         <main className='main'>
             <SideNav access={access}/>
@@ -62,6 +66,9 @@ export default function SingleClientPage({ token, access }){
                             <div className='client-card__subcontainer'>
                                 <p className='client-card__label'>Phone: </p>
                                 <p className='client-card__phone'>{client.phone}</p>
+                            </div>
+                            <div className='client-card__subcontainer'>
+                                <div className='client-card__button' onClick={clickHandler}>Edit</div>
                             </div>
                         </div>
                         <div className='client-card__wrapper'>
