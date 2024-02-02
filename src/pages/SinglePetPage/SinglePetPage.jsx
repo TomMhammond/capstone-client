@@ -12,12 +12,9 @@ export default function SinglePetPage({ token, access }){
    const navigate = useNavigate();
 
    useEffect(() => {
-       if(!sessionStorage.authToken){
+    if(!sessionStorage.authToken){
         return navigate('/');
        } 
-   }, [])
-
-   useEffect(() => {
     const fetchPetData = async () => {
         const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/pets/${id}`, {
             headers: {

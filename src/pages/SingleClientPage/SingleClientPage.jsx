@@ -17,9 +17,6 @@ export default function SingleClientPage({ token, access }){
         if(!sessionStorage.authToken){
             return navigate('/');
         }
-    }, []);
-
-    useEffect(() => {
         const fetchSingleClient = async () => {
             const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/clients/${id}`, {
                 headers: {
@@ -32,6 +29,9 @@ export default function SingleClientPage({ token, access }){
     }, [])
 
     useEffect(() => {
+        if(!sessionStorage.authToken){
+            return navigate('/');
+        }
         const fetchClientPets = async () => {
             const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/pets/client/${id}`,{
                 headers: {

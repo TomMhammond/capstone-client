@@ -1,7 +1,16 @@
+import { useEffect } from 'react';
 import SideNav from '../../components/SideNav/SideNav';
 import './DashboardPage.scss';
+import { useNavigate } from 'react-router-dom';
 
 export default function DashboardPage( {access, userName} ){
+    const navigate = useNavigate();
+    useEffect(() => {
+        if(!sessionStorage.authToken){
+            return navigate('/');
+        }
+    }, [])
+
     const date = new Date();
     const hour = date.getHours();
     console.log(hour);

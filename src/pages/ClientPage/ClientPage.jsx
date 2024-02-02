@@ -13,9 +13,6 @@ export default function ClientPage({ token, access }){
         if(!sessionStorage.authToken){
             return navigate('/');
         }
-    }, [])
-   
-    useEffect(() => {
         const fetchClientList = async () => {
             const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/clients`, {
                 headers: {

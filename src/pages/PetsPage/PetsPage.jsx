@@ -12,11 +12,8 @@ export default function PetsPage({ access }){
 
     useEffect(() => {
         if(!sessionStorage.authToken){
-            navigate('/')
-        }
-    })
-
-    useEffect(() => {
+            return navigate('/')
+         }
         const fetchPetList = async () => {
                 const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/pets`,{
                     headers: {

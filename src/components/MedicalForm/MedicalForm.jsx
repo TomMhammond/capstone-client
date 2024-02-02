@@ -1,11 +1,16 @@
 import { useEffect, useState } from 'react';
 import './MedicalForm.scss';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function MedicalForm({ token }){
     const [ petId, setPetId ] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
+        if(!sessionStorage.authToken){
+            return navigate('/');
+        }
         const fetchPetId = async () => {
             const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/pets`, {
                 headers: {

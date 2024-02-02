@@ -8,6 +8,9 @@ export default function PetForm({ token }){
     const navigate = useNavigate();
 
     useEffect(() => {
+        if(!sessionStorage.authToken){
+            return navigate('/');
+        }
         const fetchUserId = async () => {
             const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/clients`, {
                 headers: {
