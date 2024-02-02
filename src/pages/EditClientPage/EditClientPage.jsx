@@ -20,7 +20,7 @@ export default function EditClientPage({ access, token}){
             <section className='page'>
                 <div className='edit-client-card'>
                     <h2 className='edit-client-card__title'>Edit Client</h2>
-                    <EditClientForm />
+                    <EditClientForm token={token}/>
                 </div>
             </section>
         </main>
