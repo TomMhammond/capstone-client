@@ -25,7 +25,7 @@ export default function EditPetForm({ token }){
         fetchData();
     }, []);
 
-    const submitHandler = (e) => {
+    const submitHandler = async (e) => {
         e.preventDefault();
         const formEl = e.target;
         const nameEl = formEl.name.value;
@@ -81,6 +81,14 @@ export default function EditPetForm({ token }){
                 weight,
                 is_deceased: 0
             }
+
+        await axios.put(`${process.env.REACT_APP_BASE_URL}/pets/${id}`, body, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+
+        navigate(`/pets/${id}`)
     };
 
     const cancelClickHandler = (e) => {
