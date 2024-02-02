@@ -42,7 +42,7 @@ export default function ClientForm({ token }){
 
     const cancelClickHandler = (e) =>{
         e.preventDefault();
-        navigate('/pets') //this is temporary - needs to be changed once dashboard created
+        navigate('/dashboard');
     }
     
     return(

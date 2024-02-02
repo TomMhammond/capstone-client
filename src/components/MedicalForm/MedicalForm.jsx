@@ -84,11 +84,14 @@ export default function MedicalForm({ token }){
             headers: {
                 Authorization: `Bearer ${token}`,
             },
-        })
+        });
+
+        navigate('/dashboard')
     }
 
     const cancelClickHandler = (e) => {
         e.preventDefault();
+        navigate('/dashboard');
     }
     
     return(

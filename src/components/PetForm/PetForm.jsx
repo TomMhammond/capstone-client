@@ -58,6 +58,7 @@ export default function PetForm({ token }){
 
     const cancelClickHandler = (e) => {
         e.preventDefault();
+        navigate('/dashboard');
     }
 
     
