@@ -15,6 +15,10 @@ export default function SideNav( {access} ){
     const clickPets = () => {
         navigate('/pets');
     }
+
+    const clickStaff = () => {
+        navigate('/staff')
+    }
     let clients;
     let register;
     let pets;
@@ -37,7 +41,7 @@ export default function SideNav( {access} ){
                 <li className='nav__list-item' onClick={clickRegister}>{register}</li>
                 <li className='nav__list-item' onClick={clickClients}>{clients}</li>
                 <li className='nav__list-item' onClick={clickPets}>{pets}</li>
-                <li className='nav__list-item'>{staff}</li>
+                <li className='nav__list-item' onClick={clickStaff}>{staff}</li>
                 <li className='nav__list-item'>{newUser}</li>
             </ul>
         </aside>
