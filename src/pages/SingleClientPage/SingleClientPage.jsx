@@ -47,6 +47,10 @@ export default function SingleClientPage({ token, access }){
         return <></>
     }
 
+    const addClickHandler = (e) => {
+        navigate(`/add/pet/${id}`)
+    }
+
     const editClickHandler = () => {
         navigate(`/edit/client/${id}`);
     }
@@ -77,6 +81,7 @@ export default function SingleClientPage({ token, access }){
                                 <p className='client-card__phone'>{client.phone}</p>
                             </div>
                             <div className='client-card__subcontainer'>
+                            <div className='client-card__button client-card__button--add' onClick={addClickHandler}>Add</div>
                                 <div className='client-card__button' onClick={editClickHandler}>Edit</div>
                                 <div className='client-card__button--del client-card__button' onClick={delClickHandler}>Delete</div>
                             </div>

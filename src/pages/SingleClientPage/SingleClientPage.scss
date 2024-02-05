@@ -35,5 +35,11 @@
             background-color: $aggressive-colour;
             margin-left: .25rem;
         }
+
+        &--add {
+            background-color: $docile-colour;
+            border-color: $docile-colour;
+            margin-right: .25rem;
+        }
     }
 }

@@ -1,27 +1,20 @@
 import { useEffect, useState } from 'react';
 import '../PetForm/PetForm.scss';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export default function AddPetForm({ token }){
-    const [ clientId, setClientId ] = useState(null);
     const navigate = useNavigate();
+    const params = useParams();
+    const id = Number(params.id);
 
+    
     useEffect(() => {
         if(!sessionStorage.authToken){
             return navigate('/');
         }
-        const fetchUserId = async () => {
-            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/clients`, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            });
-            // setClientId(id);
-        }
-        // fetchUserId();
     },[])
-
+    
     const registerSubmitHandler = async (e) => {
         e.preventDefault();
         const formEl = e.target;
@@ -35,7 +28,7 @@ export default function AddPetForm({ token }){
 
         const body = 
             {
-                client_id: clientId,
+                client_id: id,
                 name,
                 species,
                 breed,
@@ -46,12 +39,14 @@ export default function AddPetForm({ token }){
                 is_deceased: 0
             }
 
+            console.log(body)
+
         await axios.post(`${process.env.REACT_APP_BASE_URL}/pets`, body, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
-        });
-        navigate('/register/medical')
+        })
+        navigate(`/clients/${id}`)
     }
 
     const cancelClickHandler = (e) => {
