@@ -47,8 +47,13 @@ export default function SingleClientPage({ token, access }){
         return <></>
     }
 
-    const clickHandler = () => {
+    const editClickHandler = () => {
         navigate(`/edit/client/${id}`);
+    }
+
+    const delClickHandler = async () => {
+        await axios.delete(`${process.env.REACT_APP_BASE_URL}/clients/${id}`);
+        navigate('/clients')
     }
 
     return(
@@ -68,7 +73,8 @@ export default function SingleClientPage({ token, access }){
                                 <p className='client-card__phone'>{client.phone}</p>
                             </div>
                             <div className='client-card__subcontainer'>
-                                <div className='client-card__button' onClick={clickHandler}>Edit</div>
+                                <div className='client-card__button' onClick={editClickHandler}>Edit</div>
+                                <div className='client-card__button--del client-card__button' onClick={delClickHandler}>Delete</div>
                             </div>
                         </div>
                         <div className='client-card__wrapper'>
