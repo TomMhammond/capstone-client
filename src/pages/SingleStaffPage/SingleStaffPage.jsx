@@ -32,6 +32,19 @@ export default function SingleStaffPage({ token, access}){
         return <></>
     }
 
+    const editClickHandler = () => {
+        navigate(`/edit/staff/${id}`)
+    }
+
+    const delClickHandler = async() => {
+        await axios.delete(`${process.env.REACT_APP_BASE_URL}/staff/${id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        })
+        navigate('/staff')
+    }
+
     return(
         <main className='main'>
             <SideNav access={access}/>
@@ -49,8 +62,8 @@ export default function SingleStaffPage({ token, access}){
                                 <p className='staff-card__phone'>{staff.hire_date}</p>
                             </div>
                             <div className='staff-card__subcontainer'>
-                                <div className='staff-card__button' >Edit</div>
-                                <div className='staff-card__button--del staff-card__button' >Delete</div>
+                                <div className='staff-card__button' onClick={editClickHandler}>Edit</div>
+                                <div className='staff-card__button--del staff-card__button' onClick={delClickHandler} >Delete</div>
                             </div>
                         </div>
                     </div>
