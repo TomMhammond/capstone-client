@@ -1,6 +1,6 @@
 import SideNav from '../../components/SideNav/SideNav';
 import './CreateStaffPage.scss';
-import PetForm from '../../components/PetForm/PetForm';
+import StaffForm from '../../components/StaffForm/StaffForm';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
@@ -19,7 +19,7 @@ export default function CreateStaffPage({token, access}){
             <section className='page'>
                 <div className='create-staff-card'>
                     <h2 className='create-staff-card__title'>Enter New Staff Member</h2>
-                    {/* <StaffForm token={token}/> */}
+                    <StaffForm token={token}/>
                 </div>
             </section>
         </main>

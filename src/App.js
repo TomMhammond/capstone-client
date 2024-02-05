@@ -17,6 +17,7 @@ import AddPetPage from './pages/AddPetPage/AddPetPage';
 import AddMedicalPage from "./pages/AddMedicalPage/AddMedicalPage";
 import StaffPage from "./pages/StaffPage/StaffPage";
 import SingleStaffPage from "./pages/SingleStaffPage/SingleStaffPage";
+import CreateStaffPage from "./pages/CreateStaffPage/CreateStaffPage";
 
 function App() {
   const token = sessionStorage.authToken;
@@ -42,7 +43,7 @@ function App() {
         <Route path="/register/client" element={<CreateClientPage token={token} access={access}/>} />
         <Route path="/register/pet" element={<CreatePetPage token={token} access={access}/>} />
         <Route path="/register/medical" element={<CreateMedicalPage token={token} access={access}/>} />
-        {/* <Route path="/register/staff" element={<CreateStaffPage token={token} access={access}/>} /> */}
+        <Route path="/register/staff" element={<CreateStaffPage token={token} access={access}/>} />
 
         <Route path="/edit/client/:id" element={<EditClientPage access={access} token={token}/>} />
         <Route path="/edit/pet/:id" element={<EditPetPage access={access} token={token}/>} />
