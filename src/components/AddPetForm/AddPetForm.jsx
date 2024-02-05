@@ -39,7 +39,6 @@ export default function AddPetForm({ token }){
                 is_deceased: 0
             }
 
-            console.log(body)
 
         await axios.post(`${process.env.REACT_APP_BASE_URL}/pets`, body, {
             headers: {

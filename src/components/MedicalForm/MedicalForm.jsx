@@ -66,7 +66,7 @@ export default function MedicalForm({ token }){
         }
         const neuter = Number(formEl.neuter.value);
         const vaccinated = Number(formEl.vaccinated.value);
-        console.log(petId)
+      
         const body = 
             {
                 pet_id: petId,
