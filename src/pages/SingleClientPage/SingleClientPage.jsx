@@ -52,7 +52,11 @@ export default function SingleClientPage({ token, access }){
     }
 
     const delClickHandler = async () => {
-        await axios.delete(`${process.env.REACT_APP_BASE_URL}/clients/${id}`);
+        await axios.delete(`${process.env.REACT_APP_BASE_URL}/clients/${id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
         navigate('/clients')
     }
 

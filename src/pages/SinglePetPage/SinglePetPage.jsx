@@ -54,7 +54,11 @@ export default function SinglePetPage({ token, access }){
    }
 
    const delClickHandler = async () => {
-        await axios.delete(`${process.env.REACT_APP_BASE_URL}/pets/${id}`);
+        await axios.delete(`${process.env.REACT_APP_BASE_URL}/pets/${id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
         navigate('/pets')
    }
    
