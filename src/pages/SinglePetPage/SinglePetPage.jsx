@@ -49,8 +49,13 @@ export default function SinglePetPage({ token, access }){
     statusClass = 'pet-card--active'
    }
 
-   const clickHandler = () => {
+   const editClickHandler = () => {
         navigate(`/edit/pet/${id}`)
+   }
+
+   const delClickHandler = async () => {
+        await axios.delete(`${process.env.REACT_APP_BASE_URL}/pets/${id}`);
+        navigate('/pets')
    }
    
     return(
@@ -73,7 +78,8 @@ export default function SinglePetPage({ token, access }){
                                 <p className='pet-card__breed'>{pet.breed}</p>
                             </div>
                             <div className='pet-card__subcontainer'>
-                                <div className='pet-card__button' onClick={clickHandler}>Edit</div>
+                                <div className='pet-card__button' onClick={editClickHandler}>Edit</div>
+                                <div className='pet-card__button pet-card__button--del' onClick={delClickHandler}>Delete</div>
                             </div>
                         </div>
                         <div className='pet-card__wrapper'>
