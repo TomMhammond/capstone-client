@@ -96,7 +96,7 @@ export default function Medical({ id, token }){
                             <li className='medical__allergy-list-item medical__list-item'>{allergy}</li>
                         ))}
                     </ul>
-                    <div onClick={clickHandler}>Edit</div>
+                    <div className='medical__edit-button' onClick={clickHandler}>Edit</div>
                 </div>
                 <div className='medical__condition-container'>
                     <h4 className='medical__condition-title medical__subtitle'>{`${medical.name}'s Conditions:`}</h4>

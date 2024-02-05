@@ -117,7 +117,7 @@ export default function EditMedicalForm({ token }){
 
     const cancelClickHandler = (e) => {
         e.preventDefault();
-        navigate('/pets')
+        navigate(`/pets/${id}`)
     }
     return(
         <form className='medical-form' onSubmit={submitHandler}>
