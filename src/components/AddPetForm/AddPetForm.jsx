@@ -46,7 +46,7 @@ export default function AddPetForm({ token }){
                 Authorization: `Bearer ${token}`,
             },
         })
-        navigate(`/clients/${id}`)
+        navigate(`/add/medical/${id}`)
     }
 
     const cancelClickHandler = (e) => {
