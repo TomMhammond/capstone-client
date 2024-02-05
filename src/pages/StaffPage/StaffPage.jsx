@@ -29,6 +29,11 @@ export default function StaffPage({ token, access}){
         return <></>
     }
 
+    const clickHandler = (e) => {
+        e.preventDefault();
+        navigate('/register/staff')
+    }
+
     return(
         <main className='main'>
             <SideNav access={access}/>
@@ -38,6 +43,7 @@ export default function StaffPage({ token, access}){
                     {staffData.map((staff) => (
                         <Staff key={staff.id} staff={staff}/>
                     ))}
+                    <button className='staff-card__button--add' onClick={clickHandler}>Add</button>
                 </div>
             </section>
         </main>

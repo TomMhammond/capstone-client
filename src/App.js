@@ -32,18 +32,22 @@ function App() {
         <Route path="/dashboard" element={<DashboardPage access={access} userName={userName}/>} />
         <Route path="/clients" element={<ClientPage token={token} access={access}/>}/>
         <Route path="/clients/:id" element={<SingleClientPage token={token} access={access}/>} />
+       
         <Route path="/pets" element={<PetsPage token={token} access={access}/>} />
         <Route path="/pets/:id" element={<SinglePetPage token={token} access={access}/>} />
+        
         <Route path="/staff" element={<StaffPage access={access} token={token}/>} />
-
         <Route path="/staff/:id" element={<SingleStaffPage access={access} token={token}/>} />
 
         <Route path="/register/client" element={<CreateClientPage token={token} access={access}/>} />
         <Route path="/register/pet" element={<CreatePetPage token={token} access={access}/>} />
         <Route path="/register/medical" element={<CreateMedicalPage token={token} access={access}/>} />
+        {/* <Route path="/register/staff" element={<CreateStaffPage token={token} access={access}/>} /> */}
+
         <Route path="/edit/client/:id" element={<EditClientPage access={access} token={token}/>} />
         <Route path="/edit/pet/:id" element={<EditPetPage access={access} token={token}/>} />
         <Route path="/edit/medical/:id" element={<EditMedicalPage access={access} token={token} />} />
+
         <Route path="/add/pet/:id" element={<AddPetPage access={access} token={token}/>} />
         <Route path="/add/medical/:id" element={<AddMedicalPage access={access} token={token}/>} />
       </Routes>
