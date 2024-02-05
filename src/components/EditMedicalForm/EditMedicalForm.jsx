@@ -1,6 +1,13 @@
+import { useNavigate } from 'react-router-dom';
 import '../MedicalForm/MedicalForm.scss';
 
 export default function EditMedicalForm(){
+    const navigate = useNavigate();
+
+    const cancelClickHandler = (e) => {
+        e.preventDefault();
+        navigate('/pets')
+    }
     return(
         <form className='medical-form'>
             <div className='medical-form__container'>
@@ -56,8 +63,8 @@ export default function EditMedicalForm(){
                 </fieldset>
             </div>
             <div className='medical-form__container medical-form__button-container'>
-                <button className='medical-form__button medical-form__button--register'>Register</button>
-                <button className='medical-form__button medical-form__button--cancel'>Cancel</button>
+                <button className='medical-form__button medical-form__button--register'>Update</button>
+                <button className='medical-form__button medical-form__button--cancel' onClick={cancelClickHandler}>Cancel</button>
             </div>
         </form>
     )

@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import './Medical.scss';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Medical({ id, token }){
     const [ medical, setMedical ] = useState([]);
+    const navigate = useNavigate();
     let neuturedStatus;
     let vaccineStatus;
     const allergies = [];
@@ -76,6 +78,10 @@ export default function Medical({ id, token }){
         conditions.push('No conditions known')
     }
 
+    const clickHandler = () => {
+        navigate(`/edit/medical/${id}`)
+    }
+
     return(
         <section className='medical'>
             <div className='medical__status-container'>
@@ -90,6 +96,7 @@ export default function Medical({ id, token }){
                             <li className='medical__allergy-list-item medical__list-item'>{allergy}</li>
                         ))}
                     </ul>
+                    <div onClick={clickHandler}>Edit</div>
                 </div>
                 <div className='medical__condition-container'>
                     <h4 className='medical__condition-title medical__subtitle'>{`${medical.name}'s Conditions:`}</h4>

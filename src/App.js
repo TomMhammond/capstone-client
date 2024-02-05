@@ -35,7 +35,7 @@ function App() {
         <Route path="/register/medical" element={<CreateMedicalPage token={token} access={access}/>} />
         <Route path="/edit/client/:id" element={<EditClientPage access={access} token={token}/>} />
         <Route path="/edit/pet/:id" element={<EditPetPage access={access} token={token}/>} />
-        <Route path="/edit/medical" element={<EditMedicalPage access={access} token={token} />} />
+        <Route path="/edit/medical/:id" element={<EditMedicalPage access={access} token={token} />} />
       </Routes>
     </BrowserRouter>
   );
