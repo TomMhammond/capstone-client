@@ -18,7 +18,11 @@ export default function SingleStaffPage({ token, access}){
         }
 
         const fetchStaffData = async () => {
-            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/staff/${id}`);
+            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/staff/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
             setStaff(response.data);
         }
         fetchStaffData();
