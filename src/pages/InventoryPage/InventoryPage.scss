@@ -1,0 +1,19 @@
+@use '../../styles/mixins' as *;
+
+.main {
+    display: flex;
+}
+
+.page {
+    @include pageLayout;
+    
+}
+
+.inventory-card {
+    @include cardLayout;
+
+    &__title {
+        padding: 1rem;
+        padding-left: 2rem;
+    }
+}

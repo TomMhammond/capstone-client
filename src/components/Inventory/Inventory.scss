@@ -1,0 +1,21 @@
+.inventory {
+    display: flex;
+    justify-content: flex-start;
+    border-top: 1px solid black;
+    padding: .5rem 0;
+
+    &__item{
+        width: 15rem;
+        padding-left: 2rem;
+    }
+
+    &__cat {
+        width: 10rem;
+        padding-left: 2rem;
+    }
+
+    &__onHand {
+        width: 10rem;
+        padding-left: 3rem;
+    }
+}
