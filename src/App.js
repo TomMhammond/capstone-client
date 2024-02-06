@@ -19,6 +19,7 @@ import StaffPage from "./pages/StaffPage/StaffPage";
 import SingleStaffPage from "./pages/SingleStaffPage/SingleStaffPage";
 import CreateStaffPage from "./pages/CreateStaffPage/CreateStaffPage";
 import EditStaffPage from "./pages/EditStaffPage/EditStaffPage";
+import InventoryPage from "./pages/InventoryPage/InventoryPage";
 
 function App() {
   const token = sessionStorage.authToken;
@@ -40,6 +41,8 @@ function App() {
         
         <Route path="/staff" element={<StaffPage access={access} token={token}/>} />
         <Route path="/staff/:id" element={<SingleStaffPage access={access} token={token}/>} />
+
+        <Route path="/inventory" element={<InventoryPage access={access} token={token}/>} />
 
         <Route path="/register/client" element={<CreateClientPage token={token} access={access}/>} />
         <Route path="/register/pet" element={<CreatePetPage token={token} access={access}/>} />

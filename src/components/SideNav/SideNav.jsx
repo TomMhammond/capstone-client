@@ -19,6 +19,11 @@ export default function SideNav( {access} ){
     const clickStaff = () => {
         navigate('/staff')
     }
+
+    const clickInventory = () => {
+        navigate('/inventory')
+    }
+
     let clients;
     let register;
     let pets;
@@ -30,9 +35,9 @@ export default function SideNav( {access} ){
         staff = 'Staff'
     }
 
-    let newUser;
+    let inventory;
     if(access === 'admin'){
-        newUser = 'Add User'
+        inventory = 'Inventory'
     }
 
     return(
@@ -42,7 +47,7 @@ export default function SideNav( {access} ){
                 <li className='nav__list-item' onClick={clickClients}>{clients}</li>
                 <li className='nav__list-item' onClick={clickPets}>{pets}</li>
                 <li className='nav__list-item' onClick={clickStaff}>{staff}</li>
-                <li className='nav__list-item'>{newUser}</li>
+                <li className='nav__list-item' onClick={clickInventory}>{inventory}</li>
             </ul>
         </aside>
     )
