@@ -6,21 +6,25 @@
 
     &__first-name{
         width: 5rem;
+        padding: .5rem 0;
         padding-left: 2rem;
     }
 
     &__last-name {
         width: 5rem;
+        padding: .5rem 0;
         padding-left: 2rem;
     }
 
     &__phone {
         width: 10rem;
+        padding: .5rem 0;
         padding-left: 3rem;
     }
 
     &__email {
         width: 8rem;
+        padding: .5rem 0;
         padding-left: 2rem;
     }
 }

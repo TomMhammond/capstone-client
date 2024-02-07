@@ -29,10 +29,15 @@
     &__wrapper{
         display: flex;
         padding-left: 2rem;
+        border-bottom: 1px solid black;
     }
 
     &__product {
         width: 20rem;
+        margin: .5rem 0;
+    }
+
+    &__quantity{
         margin: .5rem 0;
     }
 }

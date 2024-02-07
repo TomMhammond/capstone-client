@@ -6,16 +6,19 @@
 
     &__first-name{
         width: 5rem;
+        padding: .5rem 0;
         padding-left: 2rem;
     }
 
     &__last-name {
         width: 5rem;
+        padding: .5rem 0;
         padding-left: 5rem;
     }
 
     &__position {
         width: 10rem;
+        padding: .5rem 0;
         padding-left: 9rem;
     }
 }
