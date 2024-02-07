@@ -9,6 +9,7 @@ export default function AuditInventory({ inventory }){
 
         const body = 
         {
+            amount_on_hand: count,
             counted: count
         }
 
