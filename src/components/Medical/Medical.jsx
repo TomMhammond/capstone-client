@@ -85,7 +85,7 @@ export default function Medical({ id, token }){
     return(
         <section className='medical'>
             <div className='medical__status-container'>
-                <p className='medical__status'>{`${medical.name}'s neutured status: ${neuturedStatus}`}</p>
+                <p className='medical__status'>{`${medical.name}'s neutered status: ${neuturedStatus}`}</p>
                 <p className='medical__status'>{`${medical.name}' vaccination status: ${vaccineStatus}`}</p>
             </div>
             <div className='medical__wrapper'>

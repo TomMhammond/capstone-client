@@ -154,11 +154,11 @@ export default function EditMedicalForm({ token }){
                     <legend>Neutured Status:</legend>
                         <div>
                             <input type="radio" id="yes" name="neuter" value="1" />
-                            <label htmlFor="yes">Neutured/Spade</label>
+                            <label htmlFor="yes">Neutered/Spayed</label>
                         </div>
                         <div>
                             <input type="radio" id="no" name="neuter" value="0" />
-                            <label htmlFor="no">Not Neutured/Spade</label>
+                            <label htmlFor="no">Not Neutered/Spayed</label>
                         </div>
                 </fieldset>
                 <fieldset className='medical-form__radio-field medical-form__vaccinated'>
