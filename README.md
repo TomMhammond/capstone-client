@@ -6,6 +6,7 @@ Pawsome Practice Manager
 2. In the terminal, run 'npm i' to install node modules.
 3. Follow instructions in .example.env to create a .env file.
 4. Run 'npm start' to start the app.
+5. Use default credentials to login: Username: admin Password: pass
 
 ## Overview
 
