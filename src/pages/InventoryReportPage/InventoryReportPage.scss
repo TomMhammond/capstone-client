@@ -1,0 +1,38 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+
+.main {
+    display: flex;
+}
+
+.page {
+    @include pageLayout;
+    
+}
+
+.inventory-report-card {
+    @include cardLayout;
+
+    &__title {
+        padding: 1rem;
+        padding-left: 2rem;
+        border-bottom: 1px solid black;
+    }
+
+    &__subtitle {
+        padding-left: 2rem;
+        font-weight: 700;
+        padding-top: .5rem;
+        padding-bottom: 1rem;
+    }
+
+    &__wrapper{
+        display: flex;
+        padding-left: 2rem;
+    }
+
+    &__product {
+        width: 20rem;
+        margin: .5rem 0;
+    }
+}

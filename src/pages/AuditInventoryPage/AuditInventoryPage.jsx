@@ -32,6 +32,10 @@ export default function AuditInventoryPage({ access, token }){
         console.log(count1, count2, count3)
         
     }
+
+    const clickHandler = () => {
+        navigate('/inventory/report')
+    }
     
     return(
         <main className='main'>
@@ -42,7 +46,7 @@ export default function AuditInventoryPage({ access, token }){
                     {inventoryData.map((inventory) => (
                         <AuditInventory inventory={inventory} key={inventory.id}/>
                     ))}
-                    <div className='inventory-card__button--submit'>Submit</div>
+                    <div className='inventory-card__button--submit' onClick={clickHandler}>Submit</div>
                 </div>
             </section>
         </main>
