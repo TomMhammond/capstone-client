@@ -1,5 +1,7 @@
 import SideNav from '../../components/SideNav/SideNav';
 import './DashboardPage.scss';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 export default function DashboardPage( {access, userName} ){
     const date = new Date();
@@ -33,6 +35,9 @@ export default function DashboardPage( {access, userName} ){
                     <h2 className='dashboard-card__title'>Dashboard</h2>
                     <p className='dashboard-card__info'>{greeting}</p>
                     <p className='dashboard-card__info--gap'>{sentence}</p>
+                    <div className='dashboard-card__calendar-container'>
+                        <Calendar />
+                    </div>
                 </div>
             </section>
         </main>
