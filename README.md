@@ -1,6 +1,12 @@
 # Project Title
 Pawsome Practice Manager
 
+## TO START APP
+1. Ensure that you have the server running. Server can be retrieved from: https://github.com/TomMhammond/capstone-server.
+2. In the terminal, run 'npm i' to install node modules.
+3. Follow instructions in .example.env to create a .env file.
+4. Run 'npm start' to start the app.
+
 ## Overview
 
 Pawsome Practice Manager is an application that provides veterinary clinics with all information needed (Inventory, client data, clinic staff data) in one place.
@@ -145,8 +151,7 @@ Parameters
 - client id
 Response:
     {
-        "id": "1",
-        "address": "32 Monarchdale Ave"
+        'message' : 'success'
     }
 
 **GET /pets**
