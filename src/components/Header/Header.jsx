@@ -26,8 +26,8 @@ export default function Header({ isLoggedIn, userName, setIsLoggedIn, setUserNam
 
     return(
         <header className='header'>
-                <img className='header__img' src={image}></img>
                 <h2 className='header__title' onClick={clickHandler}>Pawsome Practice Manager</h2>
+                <img className='header__img' src={image}></img>
             <ul className='header__list'>
                 <li className='header__list-item header__list-item--left'>{text}</li>
                 <li className='header__list-item--left' onClick={logOutClickHandler}>{logOut}</li>
