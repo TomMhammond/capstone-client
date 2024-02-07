@@ -27,4 +27,14 @@
         margin-left: 2rem;
         margin-top: 3rem;
     }
+
+    &__button--submit {
+        padding: .25rem .75rem;
+        border: 1px solid $active-colour;
+        border-radius: 20px;
+        background-color: $active-colour;
+        width: 5rem;
+        margin-left: 2rem;
+        margin-top: 3rem;
+    }
 }

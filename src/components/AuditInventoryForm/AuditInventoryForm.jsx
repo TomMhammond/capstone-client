@@ -23,7 +23,7 @@ export default function AuditInventory({ inventory }){
             <p className='inventory-form__expected'>{`Threshold: ${inventory.expected_amount}`}</p>
             <label className='inventory-form__label' htmlFor='count'>Counted:</label>
             <input className='inventory-form__input' type='text' name='count' id='count' placeholder='0'></input>
-            <button className='inventory-form_button'>Set</button>
+            <button className='inventory-form__button'>Set</button>
         </form>
     )
 }
